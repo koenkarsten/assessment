@@ -38,30 +38,4 @@ public class DeviceService {
             throw new DeviceException("Device %s not found.", uid);
         }
     }
-
-//    public void processDetectionForDevice(UUID deviceUid, Detection detection) {
-//        Optional<Device> optionalDevice = deviceRepository.findById(deviceUid);
-//
-//        if(optionalDevice.isPresent()) {
-//            Device device = optionalDevice.get();
-//            resolveDetections(optionalDevice.get().detections(), detection);
-//            deviceRepository.save(device);
-//        } else {
-//            throw new DeviceException("Device %s not found whilst processing Detection %s.", deviceUid, detection.uid());
-//        }
-//    }
-//
-//    private void resolveDetections(List<Detection> detections, Detection newDetection) {
-//        switch (newDetection.type()) {
-//            case NEW:
-//                detections.add(newDetection);
-//                break;
-//            case RESOLVED:
-//                detections.removeIf(x -> x.uid().equals(newDetection.uid()));
-//                break;
-//            case NONE:
-//                detections.clear();
-//                break;
-//        }
-//    }
 }

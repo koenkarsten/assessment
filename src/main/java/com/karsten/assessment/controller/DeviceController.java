@@ -28,10 +28,4 @@ public class DeviceController {
         final Device device = deviceService.getDevice(uid);
         return ResponseEntity.ok(device);
     }
-
-//    @PutMapping("/{uid}")
-//    private ResponseEntity<Void> saveDetectionForDevice(@PathVariable UUID uid, @RequestBody Detection detection) {
-//        deviceService.processDetectionForDevice(uid, detection);
-//        return ResponseEntity.ok().build();
-//    }
 }
