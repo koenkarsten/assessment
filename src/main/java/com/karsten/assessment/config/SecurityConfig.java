@@ -22,7 +22,7 @@ public class SecurityConfig {
     // Enforce authentication and request tracing.
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated()
+        http.csrf().disable().authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated()
         ).httpBasic().and().exceptionHandling().authenticationEntryPoint(httpTracing);
 
         return http.build();
