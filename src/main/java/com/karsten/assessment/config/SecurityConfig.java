@@ -3,6 +3,7 @@ package com.karsten.assessment.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -27,6 +28,12 @@ public class SecurityConfig {
         return http.build();
     }
 
+    // Allow OpenAPI and Swagger access without authentication.
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers("/v3/api-docs/**", "/swagger-ui/**");
+    }
+
     // !!Explainer!! Including this to ensure endpoints are not publicly accessible by default, but want to flag that
     // this style of username and password management is better offloaded to a dedicated microservice. Implementing
     // advanced user management and security feels out of scope for the assessment at hand, but wanted to demonstrate
@@ -36,7 +43,7 @@ public class SecurityConfig {
         var userDetailsManager = new InMemoryUserDetailsManager();
 
         userDetailsManager.createUser(
-                User.withUsername("john.doe@fakemail.com")
+                User.withUsername("johndoe")
                         .password(passwordEncoder().encode("7PTZ15Xxx2fN0saGRLt68TeevpdaywyY"))
                         .roles("ADMIN")
                         .build()
