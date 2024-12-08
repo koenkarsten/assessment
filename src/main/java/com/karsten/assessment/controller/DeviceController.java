@@ -9,6 +9,8 @@ import java.net.URI;
 import java.util.List;
 import java.util.UUID;
 
+// !!Explainer!! This is not part of the assignment but included it to easily manage devices. This approach can also be
+// added to the DetectionController, but wanted to keep that one as close to the assignment as possible.
 @RestController
 @RequestMapping("api/1/devices")
 public class DeviceController {

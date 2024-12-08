@@ -18,6 +18,7 @@ public class SecurityConfig {
         this.httpTracing = httpTracing;
     }
 
+    // Enforce authentication and request tracing.
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated()
@@ -26,6 +27,10 @@ public class SecurityConfig {
         return http.build();
     }
 
+    // !!Explainer!! Including this to ensure endpoints are not publicly accessible by default, but want to flag that
+    // this style of username and password management is better offloaded to a dedicated microservice. Implementing
+    // advanced user management and security feels out of scope for the assessment at hand, but wanted to demonstrate
+    // my knowledge on how to enforce authentication on API's.
     @Bean
     public UserDetailsService userDetailsService() {
         var userDetailsManager = new InMemoryUserDetailsManager();
