@@ -20,7 +20,7 @@ public class DetectionController {
 
     // API Specification 2.1.1.2
     @GetMapping
-    private ResponseEntity<List<Detection>> getDetections(@RequestParam(required = false) UUID device,
+    public ResponseEntity<List<Detection>> getDetections(@RequestParam(required = false) UUID device,
                                                           @RequestParam(required = false) String appName,
                                                           @RequestParam(required = false) String appType) {
         return ResponseEntity.ok(detectionService.getDetectionsWithFiltering(device, appName, appType));
@@ -28,7 +28,7 @@ public class DetectionController {
 
     // API Specification 2.1.1.1
     @PostMapping
-    private ResponseEntity<Void> storeDetection(@RequestBody Detection detection) {
+    public ResponseEntity<Void> storeDetection(@RequestBody Detection detection) {
         URI uri = URI.create(detectionService.storeDetection(detection).toString());
         return ResponseEntity.created(uri).build();
     }

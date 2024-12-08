@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 
 @Component
 public class DetectionService {
-    final DetectionRepository detectionRepository;
+    private final DetectionRepository detectionRepository;
 
-    private DetectionService(DetectionRepository detectionRepository) {
+    public DetectionService(DetectionRepository detectionRepository) {
         this.detectionRepository = detectionRepository;
     }
 
