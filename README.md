@@ -15,7 +15,7 @@ Some additional endpoints are enabled holding Metrics, OpenAPI Specification and
 
 # assessment
 For this assessment I tried striking a balance between sticking to the minimal requirements and showcasing some additional techniques:
-- **CRUD** the DeviceController and all it related classes allow for basic CRUD operations of devices. For Detections I just implemented the 2 endpoints as instructed.
+- **CRUD** the DeviceController and all related classes allow for basic CRUD operations of devices. For Detections I just implemented the 2 endpoints as instructed.
 - **Database** The h2 in memory database has been populated with some dummy data for easy assessment of application functionality, normally this would not be the case for an application destined for production.
 - **Security** Included Spring Boot Security to highlight I have considered that this application needs to be secured by default. I did keep it very simple as I believe security should be centralised and not unique to each microservice.
 - **Tracing** Included a simple Tracing setup that currently logs every incoming request and logs the response code. I think the pattern used is nice but this is another aspect I believe should be standardised among all applications. That is why I kept it basic, but hopefully it demonstrated my knowledge regardless. 
