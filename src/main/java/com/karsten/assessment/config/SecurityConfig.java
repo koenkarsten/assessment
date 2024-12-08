@@ -30,14 +30,14 @@ public class SecurityConfig {
     // !!Explainer!! Including this to ensure endpoints are not publicly accessible by default, but want to flag that
     // this style of username and password management is better offloaded to a dedicated microservice. Implementing
     // advanced user management and security feels out of scope for the assessment at hand, but wanted to demonstrate
-    // my knowledge on how to enforce authentication on API's.
+    // some knowledge on how to enforce authentication on API's but would not submit this for production workloads.
     @Bean
     public UserDetailsService userDetailsService() {
         var userDetailsManager = new InMemoryUserDetailsManager();
 
         userDetailsManager.createUser(
                 User.withUsername("john.doe@fakemail.com")
-                        .password(passwordEncoder().encode("password"))
+                        .password(passwordEncoder().encode("7PTZ15Xxx2fN0saGRLt68TeevpdaywyY"))
                         .roles("ADMIN")
                         .build()
         );
