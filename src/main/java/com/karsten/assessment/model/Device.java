@@ -5,6 +5,6 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.UUID;
 
-@Table("DETECTION")
-public record Detection(@Id UUID uid, UUID device, DetectionType type, Long time, String appName, String appType) {
+@Table("DEVICE")
+public record Device(@Id UUID uid, DeviceType type, String model, String os) {
 }
